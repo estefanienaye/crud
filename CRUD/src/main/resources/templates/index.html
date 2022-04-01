@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8"/>
+	<title>Product Manager</title>
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css"/>
+
+	<script src="netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div align="center">
+	<div class="panel panel-info">
+    	<h1>Product List</h1>
+    </div>
+    <h3>
+    	<a href="/new" target="_blank">Create New Product</a>
+    </h3>
+    <br/><br/>
+    <table width="50%" border="1" cellpadding="10">
+        <thead >
+            <tr>
+                <th align="center">Product ID</th>
+                <th align="center">Name</th>
+                <th align="center">Brand</th>
+                <th align="center">Made In</th>
+                <th align="center">Price</th>
+                <th align="center">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+			<tr data-th-each="product:${listProducts}">
+                <td data-th-text="${product.id}"></td>
+                <td data-th-text="${product.name}"></td>
+                <td data-th-text="${product.brand}"></td>
+                <td data-th-text="${product.madein}"></td>
+                <td data-th-text="${product.price}"></td>
+				 <td>
+                    <p><a th:href="@{'/edit/{id}'(id=${product.id})}">Edit</a></p>
+       				<a th:href="@{'/delete/{id}'(id=${product.id})}">Delete</a>
+                    
+                </td>
+            </tr>
+			
+        </tbody>
+    </table>
+</div>   
+</body>
+</html>

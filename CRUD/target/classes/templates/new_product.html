@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8" />
+	<title>Create New Product</title>
+	
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css"/>
+
+	<script src="netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div align="center">
+    	<div class="panel panel-info">
+        	<h1>Create New Product</h1>
+    	</div>
+        <br />
+        <form action="#" th:action="@{/save}" th:object="${product}"
+            method="post">
+ 
+            <table  width="30%" border="0" cellpadding="10">
+                <tr>
+                    <td>Product Name:</td>
+                    <td><p><input class="form-control" type="text" th:field="*{name}" /></p></td>
+                </tr>
+                <tr>
+                    <td>Brand:</td>
+                    <td><p><input class="form-control" type="text" th:field="*{brand}" /></p></td>
+                </tr>
+                <tr>
+                    <td>Made In:</td>
+                    <td><p><input class="form-control" type="text" th:field="*{madein}" /></p></td>
+                </tr>
+                <tr>
+                    <td>Price:</td>
+                    <td><p><input class="form-control" type="text" th:field="*{price}" /></p></td>
+                </tr>                            
+                <tr>
+                    <td colspan="2" align="center">
+                    	<button type="submit" class="btn btn-success" align="center">Save</button> 
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</body>
+</html>
